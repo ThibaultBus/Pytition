@@ -98,10 +98,10 @@ class PetitionAdminForm(ModelForm):
                     \'your-email\': \'\'<br>
                     }"""),
             'newsletter_subscribe_http_mailfield': ugettext_lazy('Only when HTTP POST or GET subscription method is used. Name of the field to send via GET or POST, containing the email address to subscribe. Following the example of preceding form field, that would be \'your-email\''),
-            'newsletter_subscribe_http_url': ugettext_lazy('Only when HTTP POST or GET subscription method is used. Adresse HTTP à requêter via GET ou POST pour enregistrer quelqu\'un sur la newsletter'),
-            'newsletter_subscribe_mail_subject': ugettext_lazy('Only when EMAIL subscription method is used. Inscrire ici la syntaxe de sujet du mail qui permet d\'inscrire quelqu\'un à la newsletter. Indiquez {} à la place où le mail du signataire doit être inséré. Ex: \'ADD NOM_LISTE {} NOM_SIGNATAIRE\''),
-            'newsletter_subscribe_mail_from': ugettext_lazy('Only when EMAIL subscription method is used. L\'expéditeur du mail qui permet d\'enregistrer quelqu\'un à la newsletter. Il s\'agit généralement d\'une adresse qui est administratrice de la liste SYMPA ou MAILMAN'),
-            'newsletter_subscribe_mail_to': ugettext_lazy('Only when EMAIL subscription method is used. Adresse email d\'administration de la liste, ex : sympa@NOM_LISTE.listes.vox.coop'),
+            'newsletter_subscribe_http_url': ugettext_lazy('Only when HTTP POST or GET subscription method is used. HTTP adress to request with GET or POST to subscribe someone to the newsletter'),
+            'newsletter_subscribe_mail_subject': ugettext_lazy('Only when EMAIL subscription method is used. Enter here the syntax of the subject of the email that allows you to subscribe someone to the newsletter. Put {} where the signatory\'s email should be inserted. Ex: \'ADD LIST_NAME {} SIGNATORY_MAIL\''),
+            'newsletter_subscribe_mail_from': ugettext_lazy('Only when EMAIL subscription method is used. The sender\'s name that allows you to subscribe someone to the newsletter. It is generally an address that is administrator of the SYMPA or MAILMAN list'),
+            'newsletter_subscribe_mail_to': ugettext_lazy('Only when EMAIL subscription method is used. List administration\'s email address, ex : sympa@LIST_NAME.listes.vox.coop'),
             'newsletter_subscribe_method': ugettext_lazy('This selects the newsletter subscription method. It is either HTTP GET or POST or via sending EMAIL to the newsletter admin address'),
             'published': ugettext_lazy('If checked, the petition is published and accessible on the website by everybody. If not checked, the petition is only accessible by logged in users, others will get a 404 error.'),
             'newsletter_text': ugettext_lazy('E.g.: I want to receive updates or informations from this organization.'),
@@ -114,7 +114,7 @@ class PetitionAdminForm(ModelForm):
             'newsletter_subscribe_mail_smtp_user': ugettext_lazy('Leave empty if you don\'t use any account autentication.'),
             'newsletter_subscribe_mail_smtp_password': ugettext_lazy('Leave empty if you don\'t use any account autentication.'),
             'newsletter_subscribe_mail_smtp_tls': ugettext_lazy('SMTP connection encrypted via TLS, prefer this rather than STARTTLS if possible. Don\'t check both. The 2 settings are mutually exclusive.'),
-            'newsletter_subscribe_mail_smtp_starttls': ugettext_lazy('Connexion SMTP chiffrée via STARTTLS, préférez TLS à ce réglage. Ne pas cocher les 2. Les 2 réglages sont mutuellement exclusifs.'),
+            'newsletter_subscribe_mail_smtp_starttls': ugettext_lazy('Encrypted SMTP connection via STARTTLS, prefer TLS to this setting. Leave both unchecked. The 2 settings are mutually exclusive.'),
         }
         labels = {
             'title': ugettext_lazy('Petition title'),
@@ -238,10 +238,10 @@ class PetitionTemplateForm(ModelForm):
                     \'your-email\': \'\'<br>
                     }"""),
             'newsletter_subscribe_http_mailfield': ugettext_lazy('Only when HTTP POST or GET subscription method is used. Name of the field to send via GET or POST, containing the email address to subscribe. Following the example of preceding form field, that would be \'your-email\''),
-            'newsletter_subscribe_http_url': ugettext_lazy('Only when HTTP POST or GET subscription method is used. Adresse HTTP à requêter via GET ou POST pour enregistrer quelqu\'un sur la newsletter'),
-            'newsletter_subscribe_mail_subject': ugettext_lazy('Only when EMAIL subscription method is used. Inscrire ici la syntaxe de sujet du mail qui permet d\'inscrire quelqu\'un à la newsletter. Indiquez {} à la place où le mail du signataire doit être inséré. Ex: \'ADD NOM_LISTE {} NOM_SIGNATAIRE\''),
-            'newsletter_subscribe_mail_from': ugettext_lazy('Only when EMAIL subscription method is used. L\'expéditeur du mail qui permet d\'enregistrer quelqu\'un à la newsletter. Il s\'agit généralement d\'une adresse qui est administratrice de la liste SYMPA ou MAILMAN'),
-            'newsletter_subscribe_mail_to': ugettext_lazy('Only when EMAIL subscription method is used. Adresse email d\'administration de la liste, ex : sympa@NOM_LISTE.listes.vox.coop'),
+            'newsletter_subscribe_http_url': ugettext_lazy('Only when HTTP POST or GET subscription method is used. HTTP adress to request with GET or POST to subscribe someone to the newsletter'),
+            'newsletter_subscribe_mail_subject': ugettext_lazy('Only when EMAIL subscription method is used. Enter here the syntax of the subject of the email that allows you to subscribe someone to the newsletter. Put {} where the signatory\'s email should be inserted. Ex: \'ADD LIST_NAME {} SIGNATORY_MAIL\''),
+            'newsletter_subscribe_mail_from': ugettext_lazy('Only when EMAIL subscription method is used. The sender\'s name that allows you to subscribe someone to the newsletter. It is generally an address that is administrator of the SYMPA or MAILMAN list'),
+            'newsletter_subscribe_mail_to': ugettext_lazy('Only when EMAIL subscription method is used. List administration\'s email address, ex : sympa@LIST_NAME.listes.vox.coop'),
             'newsletter_subscribe_method': ugettext_lazy('This selects the newsletter subscription method. It is either HTTP GET or POST or via sending EMAIL to the newsletter admin address'),
             'published': ugettext_lazy('If checked, the petition is published and accessible on the website by everybody. If not checked, the petition is only accessible by logged in users, others will get a 404 error.'),
             'newsletter_text': ugettext_lazy('E.g.: I want to receive updates or informations from this organization.'),
@@ -254,8 +254,7 @@ class PetitionTemplateForm(ModelForm):
             'newsletter_subscribe_mail_smtp_user': ugettext_lazy('Leave empty if you don\'t use any account autentication.'),
             'newsletter_subscribe_mail_smtp_password': ugettext_lazy('Leave empty if you don\'t use any account autentication.'),
             'newsletter_subscribe_mail_smtp_tls': ugettext_lazy('SMTP connection encrypted via TLS, prefer this rather than STARTTLS if possible. Don\'t check both. The 2 settings are mutually exclusive.'),
-            'newsletter_subscribe_mail_smtp_starttls': ugettext_lazy('Connexion SMTP chiffrée via STARTTLS, préférez TLS à ce réglage. Ne pas cocher les 2. Les 2 réglages sont mutuellement exclusifs.'),
-        }
+            'newsletter_subscribe_mail_smtp_starttls': ugettext_lazy('Encrypted SMTP connection via STARTTLS, prefer TLS to this setting. Leave both unchecked. The 2 settings are mutually exclusive.'),        }
         labels = {
             'name': ugettext_lazy('Petition template name'),
             'text': ugettext_lazy('Petition text'),
